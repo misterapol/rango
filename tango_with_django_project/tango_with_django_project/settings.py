@@ -11,7 +11,16 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+SETTINGS_DIR = os.path.dirname(__file__)
 
+PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
+
+TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
+
+STATIC_PATH = os.path.join(BASE_DIR,'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -23,6 +32,14 @@ SECRET_KEY = 'fadvzkjtj1)hi$k-pm(v#0rmn7)i7xedle1aa**!o6yy219q2t'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+
+TEMPLATE_DIRS = (
+    TEMPLATE_PATH,
+)
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
 
 ALLOWED_HOSTS = []
 
